@@ -19,6 +19,19 @@ config/icon="res://icon.png"
 
 project/assembly_name="aestheroids"
 
+[editor]
+
+naming/node_name_num_separator=2
+naming/node_name_casing=2
+naming/default_signal_callback_name="on_{node_name}_{signal_name}"
+naming/default_signal_callback_to_self_name="on_{signal_name}"
+naming/script_name_casing=2
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/android/enable_pan_and_scale_gestures=true
+
 [rendering]
 
 renderer/rendering_method="mobile"
