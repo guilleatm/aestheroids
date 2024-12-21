@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://r55gwjas5sxn"]
+
+[ext_resource type="Shader" path="res://shaders/spatial/toon.gdshader" id="1_ew21w"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ew21w")
+shader_parameter/rim = 0.0
+shader_parameter/rim_threshold = 0.08
+shader_parameter/emission = 0.0
+shader_parameter/specular = 0.2
+shader_parameter/specular_color = Color(0.599589, 0.190932, 0.000395442, 1)
+shader_parameter/roughness = 0.5
+shader_parameter/is_normal_symmetric = false
+shader_parameter/normal_scale = 1.0
+shader_parameter/albedo_color = Color(0.378434, 0.298961, 0.999998, 1)
+shader_parameter/albedo_color2 = Color(0.737255, 0.729412, 0, 1)
