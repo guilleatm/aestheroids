@@ -14,9 +14,9 @@ public partial class SpawnUseCaseImpl : SpawnUseCase
 	public void Spawn<T>(T node, Node parent) where T : Node3D
 	{
 		Vector3 position = m_RandomNumbergenerator.GetV3OnSphere(m_Radius);
+		parent.AddChild(node);
 
 		node.GlobalPosition = position;
 		// node.GlobalRotation = rotation;
-		parent.AddChild(node);
 	}
 }

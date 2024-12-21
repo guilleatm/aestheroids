@@ -19,7 +19,7 @@ public partial class Game : Node
         const float SPAWN_RADIUS = 5f;
         SpawnUseCase spawnUseCase = new SpawnUseCaseImpl(m_RandomNumberGenerator, SPAWN_RADIUS);
 
-        AsteroidManagerUseCase<Asteroid> asteroidManagerUseCase = new AsteroidManagerUseCaseImpl().Create(spawnUseCase);
+        m_AsteroidManagerUseCase.Create(spawnUseCase);
 
 
         GD.Print($"{nameof(Game)} dependencies resolved.");
