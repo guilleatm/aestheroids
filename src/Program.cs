@@ -1,4 +1,4 @@
-namespace aestheroids;
+namespace Aestheroids;
 
 using Godot;
 

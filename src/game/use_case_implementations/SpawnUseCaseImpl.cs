@@ -4,14 +4,16 @@ using Godot;
 public partial class SpawnUseCaseImpl : SpawnUseCase
 {
 	RandomNumberGenerator m_RandomNumbergenerator;
-	public SpawnUseCaseImpl(RandomNumberGenerator randomNumberGenerator)
+	float m_Radius;
+	public SpawnUseCaseImpl(RandomNumberGenerator randomNumberGenerator, float radius)
 	{
 		m_RandomNumbergenerator = randomNumberGenerator;
+		m_Radius = radius;
 	}
 
-	public void Spawn<T>(T node, float radius, Node parent) where T : Node3D
+	public void Spawn<T>(T node, Node parent) where T : Node3D
 	{
-		Vector3 position = m_RandomNumbergenerator.GetV3OnSphere(radius);
+		Vector3 position = m_RandomNumbergenerator.GetV3OnSphere(m_Radius);
 
 		node.GlobalPosition = position;
 		// node.GlobalRotation = rotation;
