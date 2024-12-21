@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://da3nlt3cuk481"]
+[gd_scene load_steps=4 format=3 uid="uid://da3nlt3cuk481"]
 
 [ext_resource type="Script" path="res://src/input/Drag.cs" id="1_moltm"]
+[ext_resource type="Script" path="res://src/game/Rotator.cs" id="2_in7oy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g71t5"]
 
@@ -9,10 +10,15 @@
 [node name="directional_light_3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.426975, 0.563642, 0, 0.79711, 0.603834, -0.707107, -0.426975, 0.563642, 0, 4.46432, 0)
 
-[node name="camera_3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.69034)
-
 [node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_g71t5")
 skeleton = NodePath("")
 script = ExtResource("1_moltm")
+
+[node name="rotator" type="Node3D" parent="."]
+script = ExtResource("2_in7oy")
+Axis = Vector3(0.3, 1, 0)
+Velocity = 0.4
+
+[node name="camera_3d" type="Camera3D" parent="rotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.69034)

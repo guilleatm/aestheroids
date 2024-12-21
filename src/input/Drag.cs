@@ -4,6 +4,10 @@ using Godot;
 
 public partial class Drag : Node3D
 {
+    const float SCALE = .01f;
+    const float SCALE_V = .001f;
+
+
     public Vector2 Delta => m_CurrentPosition - m_OGPosition;
     Vector2 m_OGPosition;
     Vector2 m_CurrentPosition;
@@ -27,8 +31,6 @@ public partial class Drag : Node3D
             case InputEventScreenDrag screenDrag:
                 m_CurrentPosition = screenDrag.Position;
 
-                const float SCALE = .002f;
-
                 RotateY(screenDrag.Relative.X * SCALE);
                 RotateX(screenDrag.Relative.Y * SCALE);
 
@@ -38,14 +40,7 @@ public partial class Drag : Node3D
 
     public override void _Process(double delta)
     {
-        const float SCALE = .001f;
 
-
-
-        // Rotation = new Vector3(Delta.Y, 0, 0);
-
-        // RotateX(m_Velocity.Y * SCALE);
-        // RotateY(-m_Velocity.X * SCALE);
     }
 
 
