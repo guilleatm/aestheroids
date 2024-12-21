@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkbhrofx2dke0"]
+[gd_scene load_steps=4 format=3 uid="uid://bkbhrofx2dke0"]
 
 [ext_resource type="Script" path="res://src/game/Asteroid.cs" id="1_u860m"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lm3lw"]
 
-[node name="asteroid" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_t770s"]
+
+[node name="asteroid" type="RigidBody3D" node_paths=PackedStringArray("RigidBody3D")]
+gravity_scale = 0.0
 script = ExtResource("1_u860m")
+RigidBody3D = NodePath(".")
 
 [node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_lm3lw")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_t770s")

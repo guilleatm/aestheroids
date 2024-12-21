@@ -19,6 +19,7 @@ script = ExtResource("1_quxot")
 m_AsteroidPackedScene = ExtResource("2_ptgn7")
 m_AsteroidsContainer = NodePath("asteroids_container")
 m_Timer = NodePath("timer")
+m_ImpulseMagnitude = 4.0
 
 [node name="asteroids_container" type="Node3D" parent="asteroids_manager"]
 
