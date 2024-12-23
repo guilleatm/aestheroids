@@ -4,14 +4,22 @@ using Chickensoft.Introspection;
 
 namespace Aestheroids;
 
-[Meta(typeof(IDependent))]
-public partial class Game : Node
+[Meta(typeof(IDependent), typeof(IProvider))]
+public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>
 {
     public override void _Notification(int what) => this.Notify(what);
 
     [Export] GameManagerUseCaseImpl m_GameManagerUseCase;
     [Export] AsteroidManagerUseCaseImpl m_AsteroidManagerUseCase;
     [Export] UIManagerUseCaseImpl m_UIManagerUseCase;
+
+
+    // PROVIDED DEPENDENCIES
+    ScreenDragToRotationUseCase m_ScreenDragToRotationUseCase;
+    ScreenDragToRotationUseCase IProvide<ScreenDragToRotationUseCase>.Value() => m_ScreenDragToRotationUseCase;
+
+
+    // DEPENDENCIES
 
     [Dependency]
     public RandomNumberGenerator m_RandomNumberGenerator => this.DependOn<RandomNumberGenerator>();
@@ -27,6 +35,10 @@ public partial class Game : Node
 
 
 
-        GD.Print($"{nameof(Game)} dependencies resolved.");
+
+        // PROVIDE DEPENDENCIES
+
+        m_ScreenDragToRotationUseCase = new ScreenDragToRotationUseCaseImpl();
+        this.Provide();
     }
 }
