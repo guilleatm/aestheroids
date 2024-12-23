@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cywpu6lxdjhuu"]
 
 [ext_resource type="Script" path="res://src/domain/game/Game.cs" id="1_nx2as"]
-[ext_resource type="Script" path="res://src/domain/use_case_implementations/AsteroidManagerUseCaseImpl.cs" id="1_quxot"]
-[ext_resource type="Script" path="res://src/domain/use_case_implementations/GameManagerUseCaseImpl.cs" id="2_1njy0"]
+[ext_resource type="Script" path="res://src/domain/asteroid_manager/AsteroidManager.cs" id="1_quxot"]
+[ext_resource type="Script" path="res://src/domain/game_manager/GameManager.cs" id="2_1njy0"]
 [ext_resource type="PackedScene" uid="uid://bkbhrofx2dke0" path="res://src/domain/asteroid/asteroid.tscn" id="2_ptgn7"]
-[ext_resource type="Script" path="res://src/domain/use_case_implementations/UIManagerUseCaseImpl.cs" id="4_qvr2a"]
+[ext_resource type="Script" path="res://src/domain/ui_manager/UIManager.cs" id="4_qvr2a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jte41"]
 radius = 1.0

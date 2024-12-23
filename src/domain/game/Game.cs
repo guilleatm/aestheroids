@@ -9,9 +9,9 @@ public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>
 {
     public override void _Notification(int what) => this.Notify(what);
 
-    [Export] GameManagerUseCaseImpl m_GameManagerUseCase;
-    [Export] AsteroidManagerUseCaseImpl m_AsteroidManagerUseCase;
-    [Export] UIManagerUseCaseImpl m_UIManagerUseCase;
+    [Export] GameManager m_GameManagerUseCase;
+    [Export] AsteroidManager m_AsteroidManagerUseCase;
+    [Export] UIManager m_UIManagerUseCase;
 
 
     // PROVIDED DEPENDENCIES

@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 namespace Aestheroids;
-public partial class AsteroidManagerUseCaseImpl : Node, AsteroidManagerUseCase<Asteroid>
+public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 {
 	public event Action OnAsteroidAvoided;
 
@@ -13,7 +13,7 @@ public partial class AsteroidManagerUseCaseImpl : Node, AsteroidManagerUseCase<A
 	[Export] float m_ImpulseMagnitude;
 
 	SpawnUseCase m_SpawnUseCase;
-	public AsteroidManagerUseCaseImpl Create(SpawnUseCase spawnUseCase)
+	public AsteroidManager Create(SpawnUseCase spawnUseCase)
 	{
 		m_SpawnUseCase = spawnUseCase;
 
