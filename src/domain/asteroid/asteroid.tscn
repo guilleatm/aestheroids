@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkbhrofx2dke0"]
 
-[ext_resource type="Script" path="res://src/domain/views/Asteroid.cs" id="1_u860m"]
+[ext_resource type="Script" path="res://src/domain/asteroid/Asteroid.cs" id="1_u860m"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lm3lw"]
 

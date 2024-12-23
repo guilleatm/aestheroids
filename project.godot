@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="aestheroids"
-run/main_scene="res://src/program.tscn"
+run/main_scene="res://src/app/program/program.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.png"
 

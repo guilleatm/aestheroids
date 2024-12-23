@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://da3nlt3cuk481"]
 
-[ext_resource type="Script" path="res://src/domain/views/ScreenDragToRotationView.cs" id="1_ynek1"]
-[ext_resource type="Script" path="res://src/domain/views/Rotator.cs" id="2_8bx6d"]
+[ext_resource type="Script" path="res://src/domain/screen_drag_to_rotation/ScreenDragToRotation.cs" id="1_ynek1"]
+[ext_resource type="Script" path="res://src/domain/rotator/Rotator.cs" id="2_8bx6d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g71t5"]
 

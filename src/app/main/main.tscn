@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://h457eo7bqxtt"]
+
+[ext_resource type="Script" path="res://src/app/main/Main.cs" id="1_338ki"]
+[ext_resource type="PackedScene" uid="uid://cywpu6lxdjhuu" path="res://src/domain/game/game.tscn" id="2_0a6cv"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_338ki")
+m_GamePackedScene = ExtResource("2_0a6cv")
