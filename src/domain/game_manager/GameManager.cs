@@ -10,7 +10,6 @@ public partial class GameManager : Node, IGameManager
 
     public Observable<int> Score { get; set; } = new Observable<int>(0);
 
-
     public GameManager Create(IAsteroidManager<Asteroid> asteroidManagerUseCase)
     {
         asteroidManagerUseCase.OnAsteroidAvoided += OnAsteroidAvoided;

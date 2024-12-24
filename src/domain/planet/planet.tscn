@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3gwhtma4kr6m"]
+
+[ext_resource type="ArrayMesh" uid="uid://dedxvs7f7y36v" path="res://src/domain/planet/planet.obj" id="1_qi8o5"]
+
+[node name="planet" type="Node3D"]
+
+[node name="model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20456, 0, 2.49308)
+mesh = ExtResource("1_qi8o5")
