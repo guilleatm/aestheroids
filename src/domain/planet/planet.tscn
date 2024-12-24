@@ -4,6 +4,6 @@
 
 [node name="planet" type="Node3D"]
 
-[node name="model" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20456, 0, 2.49308)
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.98846, 1.34931)
 mesh = ExtResource("1_qi8o5")

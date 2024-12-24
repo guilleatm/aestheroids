@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Rotator : Node3D
+public partial class AutoRotator : Node3D
 {
 
 	[Export]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cywpu6lxdjhuu"]
+[gd_scene load_steps=9 format=3 uid="uid://cywpu6lxdjhuu"]
 
 [ext_resource type="Script" path="res://src/domain/game/Game.cs" id="1_nx2as"]
 [ext_resource type="Script" path="res://src/domain/asteroid_manager/AsteroidManager.cs" id="1_quxot"]
+[ext_resource type="PackedScene" uid="uid://c3gwhtma4kr6m" path="res://src/domain/planet/planet.tscn" id="2_0l7l7"]
 [ext_resource type="Script" path="res://src/domain/game_manager/GameManager.cs" id="2_1njy0"]
 [ext_resource type="PackedScene" uid="uid://bkbhrofx2dke0" path="res://src/domain/asteroid/asteroid.tscn" id="2_ptgn7"]
+[ext_resource type="Script" path="res://src/domain/auto_rotator/AutoRotator.cs" id="2_qljlk"]
 [ext_resource type="Script" path="res://src/domain/ui_manager/UIManager.cs" id="4_qvr2a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jte41"]
-radius = 1.0
+radius = 4.0
 
 [node name="game" type="Node3D" node_paths=PackedStringArray("m_GameManagerUseCase", "m_AsteroidManagerUseCase", "m_UIManagerUseCase")]
 script = ExtResource("1_nx2as")
@@ -19,7 +21,14 @@ m_UIManagerUseCase = NodePath("ui_manager")
 transform = Transform3D(0.337668, 0.397532, -0.853199, -0.14629, 0.917588, 0.369637, 0.929828, 0, 0.367995, 0, 1.43161, 0)
 
 [node name="camera_3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.62324)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.7082)
+
+[node name="auto_rotator" type="Node3D" parent="."]
+script = ExtResource("2_qljlk")
+Axis = Vector3(0.4, 1, 0)
+Velocity = 0.3
+
+[node name="planet" parent="auto_rotator" instance=ExtResource("2_0l7l7")]
 
 [node name="game_manager" type="Node" parent="."]
 script = ExtResource("2_1njy0")
@@ -35,7 +44,7 @@ m_ImpulseMagnitude = 4.0
 [node name="asteroids_container" type="Node3D" parent="asteroid_manager"]
 
 [node name="timer" type="Timer" parent="asteroid_manager"]
-wait_time = 0.1
+wait_time = 0.5
 
 [node name="avoid_area" type="Area3D" parent="asteroid_manager"]
 
