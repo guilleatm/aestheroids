@@ -6,6 +6,6 @@ public partial class ScreenDragToRotationUseCaseImpl : ScreenDragToRotationUseCa
 {
     public Quaternion GetRotation(Vector2 screenDrag)
     {
-        return Quaternion.FromEuler(new Vector3(screenDrag.X, screenDrag.Y, 0));
+        return Quaternion.FromEuler(new Vector3(Mathf.DegToRad(screenDrag.Y), Mathf.DegToRad(screenDrag.X), 0));
     }
 }

@@ -6,7 +6,7 @@ using System;
 
 namespace Aestheroids;
 [Meta(typeof(IDependent))]
-public partial class ScreenDragToRotationView : Node3D
+public partial class ScreenDragToRotation : Node3D
 {
     public override void _Notification(int what) => this.Notify(what);
     [Export] float m_Scale;
@@ -42,13 +42,7 @@ public partial class ScreenDragToRotationView : Node3D
                 m_CurrentPosition = screenDrag.Position;
 
                 Quaternion rotation = m_ScreenDragToRotationUseCase.GetRotation(screenDrag.Relative);
-                Quaternion *= rotation;
-
-
-                // RotateY(screenDrag.Relative.X * m_Scale);
-                // RotateX(screenDrag.Relative.Y * m_Scale);
-                // Rotate((Vector3.Up + Vector3.Right).Normalized(), screenDrag.Relative.Y * SCALE);
-
+                Quaternion = rotation * Quaternion;
                 break;
         }
     }
