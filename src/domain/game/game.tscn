@@ -29,9 +29,10 @@ Velocity = 0.3
 [node name="camera_3d" type="Camera3D" parent="auto_rotator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.7082)
 
-[node name="screen_drag_to_rotation" type="Node3D" parent="."]
+[node name="screen_drag_to_rotation" type="Node3D" parent="." node_paths=PackedStringArray("m_Camera")]
 script = ExtResource("3_w46wp")
 m_Scale = 1.0
+m_Camera = NodePath("../auto_rotator/camera_3d")
 
 [node name="planet" parent="screen_drag_to_rotation" instance=ExtResource("2_0l7l7")]
 
