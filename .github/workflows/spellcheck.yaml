@@ -1,6 +1,6 @@
 name: '🧑‍🏫 Spellcheck'
 on:
-  push:
+  workflow_dispatch: {}
 
 jobs:
   spellcheck:

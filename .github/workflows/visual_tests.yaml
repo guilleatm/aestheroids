@@ -1,7 +1,6 @@
 name: 🖼 Visual Tests
 on:
-  push:
-  pull_request:
+  workflow_dispatch: {}
 
 jobs:
   visual_tests:
