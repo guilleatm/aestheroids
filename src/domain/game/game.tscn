@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cywpu6lxdjhuu"]
+[gd_scene load_steps=10 format=3 uid="uid://cywpu6lxdjhuu"]
 
 [ext_resource type="Script" path="res://src/domain/game/Game.cs" id="1_nx2as"]
 [ext_resource type="Script" path="res://src/domain/asteroid_manager/AsteroidManager.cs" id="1_quxot"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/domain/game_manager/GameManager.cs" id="2_1njy0"]
 [ext_resource type="PackedScene" uid="uid://bkbhrofx2dke0" path="res://src/domain/asteroid/asteroid.tscn" id="2_ptgn7"]
 [ext_resource type="Script" path="res://src/domain/auto_rotator/AutoRotator.cs" id="2_qljlk"]
+[ext_resource type="Script" path="res://src/domain/screen_drag_to_rotation/ScreenDragToRotation.cs" id="3_w46wp"]
 [ext_resource type="Script" path="res://src/domain/ui_manager/UIManager.cs" id="4_qvr2a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jte41"]
@@ -20,15 +21,19 @@ m_UIManagerUseCase = NodePath("ui_manager")
 [node name="directional_light_3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.337668, 0.397532, -0.853199, -0.14629, 0.917588, 0.369637, 0.929828, 0, 0.367995, 0, 1.43161, 0)
 
-[node name="camera_3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.7082)
-
 [node name="auto_rotator" type="Node3D" parent="."]
 script = ExtResource("2_qljlk")
 Axis = Vector3(0.4, 1, 0)
 Velocity = 0.3
 
-[node name="planet" parent="auto_rotator" instance=ExtResource("2_0l7l7")]
+[node name="camera_3d" type="Camera3D" parent="auto_rotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.7082)
+
+[node name="screen_drag_to_rotation" type="Node3D" parent="."]
+script = ExtResource("3_w46wp")
+m_Scale = 1.0
+
+[node name="planet" parent="screen_drag_to_rotation" instance=ExtResource("2_0l7l7")]
 
 [node name="game_manager" type="Node" parent="."]
 script = ExtResource("2_1njy0")

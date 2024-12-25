@@ -22,7 +22,7 @@ public partial class ScreenDragToRotation : Node3D
     {
     }
 
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent @event)
     {
         switch (@event)
         {
@@ -46,4 +46,6 @@ public partial class ScreenDragToRotation : Node3D
                 break;
         }
     }
+
+    // public override void _UnhandledInput(InputEvent @event) { }
 }
