@@ -5,18 +5,21 @@ using Chickensoft.Introspection;
 namespace Aestheroids;
 
 [Meta(typeof(IDependent), typeof(IProvider))]
-public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>
+public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>, IProvide<IGameManager>
 {
     public override void _Notification(int what) => this.Notify(what);
 
-    [Export] GameManager m_GameManagerUseCase;
-    [Export] AsteroidManager m_AsteroidManagerUseCase;
-    [Export] UIManager m_UIManagerUseCase;
+    [Export] GameManager m_GameManager;
+    [Export] AsteroidManager m_AsteroidManager;
+    [Export] UIManager m_UIManager;
+    [Export] Planet m_Planet;
 
 
     // PROVIDED DEPENDENCIES
     ScreenDragToRotationUseCase m_ScreenDragToRotationUseCase;
     ScreenDragToRotationUseCase IProvide<ScreenDragToRotationUseCase>.Value() => m_ScreenDragToRotationUseCase;
+
+    IGameManager IProvide<IGameManager>.Value() => m_GameManager;
 
 
     // DEPENDENCIES
@@ -26,12 +29,14 @@ public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>
 
     public void OnResolved()
     {
+        // INSTALL
+
         const float SPAWN_RADIUS = 10f;
         SpawnUseCase spawnUseCase = new SpawnUseCaseImpl(m_RandomNumberGenerator, SPAWN_RADIUS);
 
-        m_AsteroidManagerUseCase.Create(spawnUseCase);
-        m_GameManagerUseCase.Create(m_AsteroidManagerUseCase);
-        m_UIManagerUseCase.Create(m_GameManagerUseCase);
+        m_AsteroidManager.Create(spawnUseCase);
+        m_UIManager.Create();
+        m_GameManager.Create(m_UIManager, m_AsteroidManager, m_Planet);
 
 
 

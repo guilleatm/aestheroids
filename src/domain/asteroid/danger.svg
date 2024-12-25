@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="113.399mm"
+   height="113.39902mm"
+   viewBox="0 0 113.399 113.39902"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-53.574621,-45.426753)">
+    <circle
+       style="fill:none;stroke:#d40000;stroke-width:7.46204;stroke-dasharray:none;stroke-opacity:1"
+       id="path111-3"
+       cx="110.27412"
+       cy="102.12627"
+       r="26.343676"
+       inkscape:export-filename="danger.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="fill:none;stroke:#d40000;stroke-width:12.368;stroke-dasharray:none;stroke-opacity:1"
+       id="path111-3-6"
+       cx="110.27412"
+       cy="102.12626"
+       r="43.663586" />
+    <circle
+       style="fill:#d40000;stroke-width:0.264583"
+       id="path111"
+       cx="110.27412"
+       cy="102.12627"
+       r="11.085773" />
+    <rect
+       style="fill:#d40000;stroke:#d40000;stroke-width:2.92517;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect410"
+       width="3.2591584"
+       height="110.47385"
+       x="108.64454"
+       y="46.889339" />
+    <rect
+       style="fill:#d40000;stroke:#d40000;stroke-width:2.92507;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect410-7"
+       width="110.47393"
+       height="3.2589307"
+       x="55.037155"
+       y="100.4968" />
+  </g>
+</svg>

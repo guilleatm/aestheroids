@@ -1,16 +1,26 @@
+using Chickensoft.AutoInject;
+using Chickensoft.Introspection;
 using Godot;
 using System;
 
 namespace Aestheroids;
+
+[Meta(typeof(IDependent))]
 public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 {
 	public event Action OnAsteroidAvoided;
+	public event Action OnAsteroidCollided;
+
+	public override void _Notification(int what) => this.Notify(what);
 
 	[Export] PackedScene m_AsteroidPackedScene;
 	[Export] Node3D m_AsteroidsContainer;
 	[Export] Area3D m_AvoidArea;
 	[Export] Timer m_Timer;
 	[Export] float m_ImpulseMagnitude;
+
+	[Dependency]
+	public IGameManager m_GameManager => this.DependOn<IGameManager>();
 
 	SpawnUseCase m_SpawnUseCase;
 	public AsteroidManager Create(SpawnUseCase spawnUseCase)
@@ -20,11 +30,27 @@ public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 		m_AvoidArea.BodyExited += OnAsteroidExitedAvoidArea;
 
 		m_Timer.Timeout += SpawnAsteroid;
-		m_Timer.Start();
 
 		return this;
 	}
 
+	public void OnResolved()
+	{
+		m_GameManager.OnGameOver += OnGameOver;
+		m_GameManager.OnGameStarted += OnGameStarted;
+	}
+
+	void OnGameStarted()
+	{
+		m_Timer.Start();
+	}
+
+	void OnGameOver()
+	{
+		m_Timer.Stop();
+
+
+	}
 
 	public void SpawnAsteroid()
 	{

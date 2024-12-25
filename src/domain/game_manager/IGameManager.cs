@@ -1,7 +1,12 @@
+using System;
+
 namespace Aestheroids;
 
 public interface IGameManager
 {
+    public event Action OnGameStarted;
+    public event Action OnGameOver;
+
     public Observable<int> Score { get; set; }
 }
 
