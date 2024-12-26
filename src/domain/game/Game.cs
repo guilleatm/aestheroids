@@ -31,7 +31,7 @@ public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>, IProvid
     {
         // INSTALL
 
-        const float SPAWN_RADIUS = 10f;
+        const float SPAWN_RADIUS = 15f;
         SpawnUseCase spawnUseCase = new SpawnUseCaseImpl(m_RandomNumberGenerator, SPAWN_RADIUS);
 
         m_AsteroidManager.Create(spawnUseCase);

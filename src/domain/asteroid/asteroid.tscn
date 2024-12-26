@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkbhrofx2dke0"]
+[gd_scene load_steps=7 format=3 uid="uid://bkbhrofx2dke0"]
 
 [ext_resource type="Script" path="res://src/domain/asteroid/Asteroid.cs" id="1_u860m"]
 [ext_resource type="Texture2D" uid="uid://mpdxvrun2fy3" path="res://src/domain/asteroid/danger.svg" id="2_7cwcu"]
 [ext_resource type="Material" uid="uid://duwmmj58dd6m1" path="res://materials/asteroid_material.tres" id="2_w5jjr"]
+[ext_resource type="PackedScene" uid="uid://c1kfdrvtqunjy" path="res://particles/asteroid_particles.tscn" id="4_rubrw"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lm3lw"]
 radius = 0.2
@@ -30,3 +31,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.7
 size = Vector3(0.4, 2.11812, 0.4)
 texture_albedo = ExtResource("2_7cwcu")
 emission_energy = 0.0
+
+[node name="asteroid_particles" parent="." instance=ExtResource("4_rubrw")]

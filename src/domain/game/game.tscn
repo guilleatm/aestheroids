@@ -35,10 +35,10 @@ transform = Transform3D(0.337668, 0.397532, -0.853199, -0.14629, 0.917588, 0.369
 [node name="auto_rotator" type="Node3D" parent="."]
 script = ExtResource("2_qljlk")
 Axis = Vector3(0.4, 1, 0)
-Velocity = 1.4
+Velocity = 1.1
 
 [node name="camera_3d" type="Camera3D" parent="auto_rotator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.5846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.1867)
 
 [node name="screen_drag_to_rotation" type="Node3D" parent="." node_paths=PackedStringArray("m_Camera")]
 script = ExtResource("3_w46wp")
@@ -56,12 +56,12 @@ m_AsteroidPackedScene = ExtResource("2_ptgn7")
 m_AsteroidsContainer = NodePath("asteroids_container")
 m_AvoidArea = NodePath("avoid_area")
 m_Timer = NodePath("timer")
-m_ImpulseMagnitude = 1.0
+m_ImpulseMagnitude = 2.5
 
 [node name="asteroids_container" type="Node3D" parent="asteroid_manager"]
 
 [node name="timer" type="Timer" parent="asteroid_manager"]
-wait_time = 3.0
+wait_time = 6.0
 
 [node name="avoid_area" type="Area3D" parent="asteroid_manager"]
 
