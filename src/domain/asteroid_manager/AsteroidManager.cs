@@ -9,7 +9,7 @@ namespace Aestheroids;
 public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 {
 	public event Action OnAsteroidAvoided;
-	public event Action OnAsteroidCollided;
+	public event Action<Asteroid> OnAsteroidCollided;
 
 	public override void _Notification(int what) => this.Notify(what);
 
@@ -23,11 +23,16 @@ public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 	public IGameManager m_GameManager => this.DependOn<IGameManager>();
 
 	SpawnUseCase m_SpawnUseCase;
-	public AsteroidManager Create(SpawnUseCase spawnUseCase)
+	DestroyAsteroidUseCase<Asteroid> m_DestroyAsteroidUseCase;
+	public AsteroidManager Create(Planet planet, SpawnUseCase spawnUseCase, DestroyAsteroidUseCase<Asteroid> destroyAsteroidUseCase)
 	{
 		m_SpawnUseCase = spawnUseCase;
+		m_DestroyAsteroidUseCase = destroyAsteroidUseCase;
 
 		m_AvoidArea.BodyExited += OnAsteroidExitedAvoidArea;
+		planet.OnAsteroidCollided += OnAsteroidCollidedInternal;
+
+		OnAsteroidCollided += OnAsteroidCollidedCallback;
 
 		m_Timer.Timeout += SpawnAsteroid;
 
@@ -49,8 +54,27 @@ public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 	{
 		m_Timer.Stop();
 
-
+		foreach (Node3D node in m_AsteroidsContainer.GetChildren())
+		{
+			CallDeferred(nameof(FreeAsteroid), node);
+		}
 	}
+
+	void OnAsteroidCollidedInternal(Node3D body)
+	{
+		if (body is Asteroid asteroid)
+		{
+			OnAsteroidCollided.Invoke(asteroid);
+		}
+	}
+
+	void OnAsteroidCollidedCallback(Asteroid asteroid)
+	{
+		m_DestroyAsteroidUseCase.DestroyAsteroid(asteroid);
+		CallDeferred(nameof(FreeAsteroid), asteroid);
+	}
+
+
 
 	public void SpawnAsteroid()
 	{
@@ -66,19 +90,14 @@ public partial class AsteroidManager : Node, IAsteroidManager<Asteroid>
 		const int FREE_ASTEROID_DELAY = 5;
 		OnAsteroidAvoided?.Invoke();
 
-		body.GetParent().RemoveChild(body);
-		body.QueueFree();
+		CallDeferred(nameof(FreeAsteroid), body);
+	}
 
+	public void FreeAsteroid(Node3D node3D)
+	{
+		if (node3D.IsQueuedForDeletion()) return;
 
-		// SceneTreeTimer timer = GetTree().CreateTimer(FREE_ASTEROID_DELAY);
-		// timer.Timeout += FreeAsteroid;
-
-		// void FreeAsteroid()
-		// {
-		// 	// GD.Print(body.Name);
-		// 	timer.Timeout -= FreeAsteroid;
-
-		// }
-
+		node3D.GetParent().RemoveChild(node3D);
+		node3D.QueueFree();
 	}
 }

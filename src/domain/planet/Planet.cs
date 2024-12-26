@@ -1,9 +1,10 @@
+using Aestheroids;
 using Godot;
 using System;
 
 public partial class Planet : Area3D, IPlanet
 {
-    public event Action OnAsteroidCollided;
+    public event Action<Node3D> OnAsteroidCollided;
 
     public override void _Ready()
     {
@@ -12,6 +13,6 @@ public partial class Planet : Area3D, IPlanet
 
     void OnBodyEntered(Node3D body)
     {
-        OnAsteroidCollided.Invoke();
+        OnAsteroidCollided.Invoke(body);
     }
 }

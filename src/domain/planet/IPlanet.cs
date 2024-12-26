@@ -3,5 +3,5 @@ using System;
 
 public interface IPlanet
 {
-	public event Action OnAsteroidCollided;
+	public event Action<Node3D> OnAsteroidCollided;
 }

@@ -16,12 +16,12 @@ public partial class GameManager : Node, IGameManager
 
     IAsteroidManager<Asteroid> m_AsteroidManager;
 
-    public GameManager Create(UIManager uiManager, IAsteroidManager<Asteroid> asteroidManager, IPlanet planet)
+    public GameManager Create(UIManager uiManager, IAsteroidManager<Asteroid> asteroidManager)
     {
         m_AsteroidManager = asteroidManager;
 
         uiManager.OnPlayPressed += () => OnGameStarted.Invoke();
-        planet.OnAsteroidCollided += () => OnGameOver.Invoke();
+        asteroidManager.OnAsteroidCollided += (Asteroid _) => OnGameOver.Invoke();
 
         OnGameStarted += OnGameStartedCallback;
         OnGameOver += OnGameOverCallback;

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqc1jxgqmvrui"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5868c"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_blp66"]
+material = SubResource("StandardMaterial3D_5868c")
+radius = 0.2
+height = 0.4
+radial_segments = 7
+rings = 6
+
+[sub_resource type="Curve" id="Curve_1sy4v"]
+bake_resolution = 10
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.285714), -1.52137, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_iuxm0"]
+offsets = PackedFloat32Array(0, 0.253333, 0.706667, 0.846667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.725085, 0.392465, 0.191245, 1, 0.654445, 0.0276655, 2.40654e-07, 1, 0.654902, 0.027451, 0, 1, 0, 0, 0, 0)
+
+[node name="explosion_particles" type="CPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.315623)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.9
+mesh = SubResource("SphereMesh_blp66")
+spread = 180.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+damping_min = 20.0
+damping_max = 20.0
+scale_amount_curve = SubResource("Curve_1sy4v")
+color_ramp = SubResource("Gradient_iuxm0")

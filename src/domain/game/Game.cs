@@ -34,9 +34,13 @@ public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>, IProvid
         const float SPAWN_RADIUS = 15f;
         SpawnUseCase spawnUseCase = new SpawnUseCaseImpl(m_RandomNumberGenerator, SPAWN_RADIUS);
 
-        m_AsteroidManager.Create(spawnUseCase);
+        IParticlesRepository particlesRepository = new ParticlesRepository();
+
+        DestroyAsteroidUseCase<Asteroid> destroyAsteroidUseCase = new DestroyAsteroidUseCaseImpl(particlesRepository);
+
+        m_AsteroidManager.Create(m_Planet, spawnUseCase, destroyAsteroidUseCase);
         m_UIManager.Create();
-        m_GameManager.Create(m_UIManager, m_AsteroidManager, m_Planet);
+        m_GameManager.Create(m_UIManager, m_AsteroidManager);
 
 
 

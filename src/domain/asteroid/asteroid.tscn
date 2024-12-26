@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkbhrofx2dke0"]
+[gd_scene load_steps=8 format=3 uid="uid://bkbhrofx2dke0"]
 
 [ext_resource type="Script" path="res://src/domain/asteroid/Asteroid.cs" id="1_u860m"]
 [ext_resource type="Texture2D" uid="uid://mpdxvrun2fy3" path="res://src/domain/asteroid/danger.svg" id="2_7cwcu"]
 [ext_resource type="Material" uid="uid://duwmmj58dd6m1" path="res://materials/asteroid_material.tres" id="2_w5jjr"]
 [ext_resource type="PackedScene" uid="uid://c1kfdrvtqunjy" path="res://particles/asteroid_particles.tscn" id="4_rubrw"]
+[ext_resource type="PackedScene" uid="uid://bqc1jxgqmvrui" path="res://particles/explosion_particles.tscn" id="5_3vbc0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_lm3lw"]
 radius = 0.2
@@ -14,10 +15,11 @@ rings = 6
 [sub_resource type="SphereShape3D" id="SphereShape3D_t770s"]
 radius = 0.2
 
-[node name="asteroid" type="RigidBody3D" node_paths=PackedStringArray("RigidBody3D")]
+[node name="asteroid" type="RigidBody3D" node_paths=PackedStringArray("RigidBody3D", "ExplosionParticles")]
 gravity_scale = 0.0
 script = ExtResource("1_u860m")
 RigidBody3D = NodePath(".")
+ExplosionParticles = NodePath("explosion_particles")
 
 [node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_w5jjr")
@@ -33,3 +35,6 @@ texture_albedo = ExtResource("2_7cwcu")
 emission_energy = 0.0
 
 [node name="asteroid_particles" parent="." instance=ExtResource("4_rubrw")]
+
+[node name="explosion_particles" parent="." instance=ExtResource("5_3vbc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
