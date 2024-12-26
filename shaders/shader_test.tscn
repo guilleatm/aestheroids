@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmt7k1txi2hjn"]
+
+[ext_resource type="Material" uid="uid://ca8ssrydfkqrp" path="res://materials/wireframe_material.tres" id="2_ahqt4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_82li5"]
+
+[node name="shader_test" type="Node3D"]
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_ahqt4")
+mesh = SubResource("BoxMesh_82li5")
+
+[node name="camera_3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.25406)
