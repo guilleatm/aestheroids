@@ -13,6 +13,4 @@ public class ParticlesRepository : IParticlesRepository
 				return ResourceLoader.Load<PackedScene>("res://particles/explosion_particles.tscn");
 		}
 	}
-
-
 }

@@ -35,8 +35,9 @@ public partial class Game : Node, IProvide<ScreenDragToRotationUseCase>, IProvid
         SpawnUseCase spawnUseCase = new SpawnUseCaseImpl(m_RandomNumberGenerator, SPAWN_RADIUS);
 
         IParticlesRepository particlesRepository = new ParticlesRepository();
+        ISoundRepository soundRepository = new SoundRepository();
 
-        DestroyAsteroidUseCase<Asteroid> destroyAsteroidUseCase = new DestroyAsteroidUseCaseImpl(particlesRepository);
+        DestroyAsteroidUseCase<Asteroid> destroyAsteroidUseCase = new DestroyAsteroidUseCaseImpl(particlesRepository, soundRepository);
 
         m_AsteroidManager.Create(m_Planet, spawnUseCase, destroyAsteroidUseCase);
         m_UIManager.Create();
