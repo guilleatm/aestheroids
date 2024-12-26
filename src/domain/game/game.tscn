@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cywpu6lxdjhuu"]
+[gd_scene load_steps=11 format=3 uid="uid://cywpu6lxdjhuu"]
 
 [ext_resource type="Script" path="res://src/domain/game/Game.cs" id="1_nx2as"]
 [ext_resource type="Script" path="res://src/domain/asteroid_manager/AsteroidManager.cs" id="1_quxot"]
@@ -11,6 +11,14 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jte41"]
 radius = 4.0
+
+[sub_resource type="Environment" id="Environment_kluc8"]
+background_mode = 1
+background_color = Color(0.355372, 0.432211, 0.491344, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.716296, 0.716296, 0.716296, 1)
+fog_mode = 1
+fog_density = 1.0
 
 [node name="game" type="Node3D" node_paths=PackedStringArray("m_GameManager", "m_AsteroidManager", "m_UIManager", "m_Planet")]
 script = ExtResource("1_nx2as")
@@ -59,3 +67,6 @@ wait_time = 3.0
 
 [node name="collision_shape_3d" type="CollisionShape3D" parent="asteroid_manager/avoid_area"]
 shape = SubResource("SphereShape3D_jte41")
+
+[node name="world_environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kluc8")
