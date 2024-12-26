@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://df71vc6nevorm"]
+
+[ext_resource type="Texture2D" uid="uid://c8uaxv40lp34u" path="res://src/domain/ui_manager/button.svg" id="1_dyp2f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lglg5"]
+texture = ExtResource("1_dyp2f")
+texture_margin_left = 16.0
+texture_margin_top = 20.0
+texture_margin_right = 16.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.52, 0.52, 0.52, 0.784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oshad"]
+texture = ExtResource("1_dyp2f")
+texture_margin_left = 16.0
+texture_margin_top = 20.0
+texture_margin_right = 16.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.73, 0.73, 0.73, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hkhm3"]
+texture = ExtResource("1_dyp2f")
+texture_margin_left = 16.0
+texture_margin_top = 20.0
+texture_margin_right = 16.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c3kk1"]
+texture = ExtResource("1_dyp2f")
+texture_margin_left = 16.0
+texture_margin_top = 20.0
+texture_margin_right = 16.0
+texture_margin_bottom = 14.0
+modulate_color = Color(0.73, 0.73, 0.73, 1)
+
+[resource]
+Button/colors/font_color = Color(0.4221, 0.54684, 0.63, 1)
+Button/colors/font_disabled_color = Color(0.423529, 0.545098, 0.631373, 1)
+Button/font_sizes/font_size = 16
+Button/styles/disabled = SubResource("StyleBoxTexture_lglg5")
+Button/styles/hover = SubResource("StyleBoxTexture_oshad")
+Button/styles/normal = SubResource("StyleBoxTexture_hkhm3")
+Button/styles/pressed = SubResource("StyleBoxTexture_c3kk1")

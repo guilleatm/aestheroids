@@ -15,6 +15,7 @@ public partial class UIManager : Node, IUIManager
 
 	[Export] Button m_PlayButton;
 	[Export] Label m_ScoreLabel;
+	[Export] Control m_MenuParent;
 
 	[Dependency]
 	public IGameManager m_GameManager => this.DependOn<IGameManager>();
@@ -39,11 +40,11 @@ public partial class UIManager : Node, IUIManager
 
 	void OnGameStarted()
 	{
-		m_PlayButton.Visible = false;
+		m_MenuParent.Visible = false;
 	}
 
 	void OnGameOver()
 	{
-		m_PlayButton.Visible = true;
+		m_MenuParent.Visible = true;
 	}
 }

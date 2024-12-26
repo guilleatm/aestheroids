@@ -29,6 +29,7 @@ public class DestroyAsteroidUseCaseImpl : DestroyAsteroidUseCase<Asteroid>
 		asteroid.GetTree().Root.AddChild(audioPlayer);
 
 		audioPlayer.Stream = m_ExplosionSound;
+		audioPlayer.VolumeDb = +1.5f;
 		audioPlayer.Play();
 
 

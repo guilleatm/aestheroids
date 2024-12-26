@@ -32,6 +32,11 @@ naming/default_signal_callback_name="on_{node_name}_{signal_name}"
 naming/default_signal_callback_to_self_name="on_{signal_name}"
 naming/script_name_casing=2
 
+[gui]
+
+theme/custom="res://themes/default_theme.tres"
+theme/custom_font="res://fonts/molot.otf"
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true

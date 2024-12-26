@@ -64,7 +64,7 @@ m_ImpulseMagnitude = 2.5
 [node name="asteroids_container" type="Node3D" parent="asteroid_manager"]
 
 [node name="timer" type="Timer" parent="asteroid_manager"]
-wait_time = 2.0
+wait_time = 8.0
 
 [node name="avoid_area" type="Area3D" parent="asteroid_manager"]
 

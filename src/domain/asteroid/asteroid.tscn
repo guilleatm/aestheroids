@@ -15,12 +15,10 @@ rings = 6
 [sub_resource type="SphereShape3D" id="SphereShape3D_t770s"]
 radius = 0.2
 
-[node name="asteroid" type="RigidBody3D" node_paths=PackedStringArray("RigidBody3D", "ExplosionParticles", "ExplosionSound")]
+[node name="asteroid" type="RigidBody3D" node_paths=PackedStringArray("RigidBody3D")]
 gravity_scale = 0.0
 script = ExtResource("1_u860m")
 RigidBody3D = NodePath(".")
-ExplosionParticles = NodePath("")
-ExplosionSound = NodePath("")
 
 [node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_w5jjr")
@@ -39,6 +37,6 @@ emission_energy = 0.0
 
 [node name="asteroid_sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_jgnse")
-volume_db = -3.0
+volume_db = -2.0
 unit_size = 1.0
 autoplay = true

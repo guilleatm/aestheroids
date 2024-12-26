@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/domain/ui_manager/UIManager.cs" id="1_yy3x3"]
 [ext_resource type="AudioStream" uid="uid://dsg3uu6usangp" path="res://music/background_music.mp3" id="2_xyxiv"]
 
-[node name="ui_manager" type="Control" node_paths=PackedStringArray("m_PlayButton", "m_ScoreLabel")]
+[node name="ui_manager" type="Control" node_paths=PackedStringArray("m_PlayButton", "m_ScoreLabel", "m_MenuParent")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,30 +11,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yy3x3")
-m_PlayButton = NodePath("menu/button")
+m_PlayButton = NodePath("menu/margin_container/v_box_container/play_button")
 m_ScoreLabel = NodePath("hud/label")
+m_MenuParent = NodePath("menu/margin_container")
 
 [node name="menu" type="Node" parent="."]
 
-[node name="button" type="Button" parent="menu"]
-custom_minimum_size = Vector2(0, 100)
-anchors_preset = 12
-anchor_top = 1.0
+[node name="margin_container" type="MarginContainer" parent="menu"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="v_box_container" type="VBoxContainer" parent="menu/margin_container"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="play_button" type="Button" parent="menu/margin_container/v_box_container"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 8
 text = "Play"
+
+[node name="leaderboard_button" type="Button" parent="menu/margin_container/v_box_container"]
+layout_mode = 2
+size_flags_vertical = 8
+disabled = true
+text = "Leaderboard"
 
 [node name="hud" type="Node" parent="."]
 
 [node name="label" type="Label" parent="hud"]
-offset_left = 25.0
-offset_top = 30.0
-offset_right = 124.0
-offset_bottom = 74.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_top = 112.0
+offset_right = 49.5
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
 text = "0"
+horizontal_alignment = 1
 
 [node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xyxiv")
+autoplay = true
+parameters/looping = true
