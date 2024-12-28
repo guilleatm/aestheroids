@@ -32,16 +32,18 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="play_button" type="Button" parent="menu/margin_container/v_box_container"]
+auto_translate_mode = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 8
-text = "Play"
+text = "PLAY"
 
 [node name="leaderboard_button" type="Button" parent="menu/margin_container/v_box_container"]
+auto_translate_mode = 1
 layout_mode = 2
 size_flags_vertical = 8
 disabled = true
-text = "Leaderboard"
+text = "LEADERBOARD"
 
 [node name="hud" type="Node" parent="."]
 

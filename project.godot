@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=360
 window/size/viewport_height=800
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -42,6 +43,11 @@ theme/custom_font="res://fonts/molot.otf"
 pointing/emulate_touch_from_mouse=true
 pointing/android/enable_pan_and_scale_gestures=true
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/localization/test_localization.en.translation", "res://assets/localization/test_localization.es.translation", "res://assets/localization/test_localization.de.translation", "res://assets/localization/test_localization.fr.translation", "res://assets/localization/test_localization.it.translation", "res://assets/localization/test_localization.pt.translation", "res://assets/localization/test_localization.ja.translation", "res://assets/localization/test_localization.ko.translation", "res://assets/localization/test_localization.ru.translation", "res://assets/localization/test_localization.zh.translation", "res://assets/localization/test_localization.ar.translation", "res://assets/localization/test_localization.ca.translation", "res://assets/localization/test_localization.cs.translation", "res://assets/localization/test_localization.da.translation", "res://assets/localization/test_localization.fi.translation", "res://assets/localization/test_localization.hi.translation", "res://assets/localization/test_localization.hu.translation", "res://assets/localization/test_localization.nb.translation", "res://assets/localization/test_localization.nl.translation", "res://assets/localization/test_localization.pl.translation", "res://assets/localization/test_localization.sv.translation", "res://assets/localization/test_localization.th.translation", "res://assets/localization/test_localization.tr.translation", "res://assets/localization/test_localization.vi.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
