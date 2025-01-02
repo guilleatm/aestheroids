@@ -11,3 +11,5 @@ obj/
 .DS_Store
 
 *.translation
+
+android/

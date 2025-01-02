@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cvhyx4aaxdski"
-path="res://.godot/imported/molot.otf-c02cf94090174cfa160be4e4ed573ddd.fontdata"
+path="res://.godot/imported/molot.otf-879f97162c124f33cd553a9afb4b3f9d.fontdata"
 
 [deps]
 
-source_file="res://fonts/molot.otf"
-dest_files=["res://.godot/imported/molot.otf-c02cf94090174cfa160be4e4ed573ddd.fontdata"]
+source_file="res://assets/fonts/molot.otf"
+dest_files=["res://.godot/imported/molot.otf-879f97162c124f33cd553a9afb4b3f9d.fontdata"]
 
 [params]
 
